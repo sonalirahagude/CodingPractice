@@ -26,7 +26,20 @@ def maxSubArr(A):
 		maxEnd = curPos
 	
 	print maxStart, maxEnd, maxSum
+	return [maxStart, maxEnd]
 
 
-A = [-4,4,5,-3,2,1,8,0,4,-1]
-maxSubArr(A)	
+
+import unittest
+class SolutionTester(unittest.TestCase):
+	def test1(self):		
+		A = [-4,4,5,-3,2,1,8,0,4,-1]
+		B = maxSubArr(A)	
+		self.assertEqual([4,8],B)
+	
+	def testAllNegative(self):		
+		A = [-4,-4,-5,-3,-2,-1,-8,-0,-4,-1]
+		B = maxSubArr(A)	
+		self.assertEqual([0,0],B)
+
+unittest.main()
